@@ -33,7 +33,12 @@ function populateForm() {
 
 function onSubmit(evt) {
   evt.preventDefault();
+
+  if (!evt.target.email.value || !evt.target.message.value) {
+    window.alert('All fields should be completed');
+    return;
+  }
   evt.currentTarget.reset();
-  localStorage.removeItem(STORAGE_KEY);
   console.log(formData);
+  localStorage.removeItem(STORAGE_KEY);
 }
